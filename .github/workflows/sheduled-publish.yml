@@ -8,18 +8,28 @@ jobs:
     steps:
     - name: Check out repo's default branch
       uses: actions/checkout@v3
+
     - name: Get submodule content
       run: git submodule update --init --recursive
+
+    - name: Checkout main branch in public submodule
+    - run: |
+      cd public
+      git checkout main
+      cd ..
+
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
       with:
         hugo-version: '0.91.2'
         # extended: true
+
     - name: Build site with Hugo
       run: hugo -D
-    - name: Deploy site
-      uses: peaceiris/actions-gh-pages@v3
-      if: ${{ github.ref == 'refs/heads/main' }}
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+
+    - name: Commit public submodule changes
+    - run: |
+      cd public
+      git add .
+      git commit -m "[GitHub Actions] Updated site"
+      git push
