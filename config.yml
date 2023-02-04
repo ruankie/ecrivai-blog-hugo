@@ -1,11 +1,11 @@
-baseURL: "ecriv-ai.github.io"
+baseURL: "https://ecriv-ai.github.io/"
 title: EcrivAI Blog
 # paginate: 5
 theme: PaperMod
 
-# minify:
-#   disableXML: true
-#   minifyOutput: true
+minify:
+  disableXML: true
+  minifyOutput: true
 
 params:
   # env: production # to enable google analytics, opengraph, twitter-cards and schema.
@@ -33,9 +33,9 @@ params:
   showtoc: true
   tocopen: false
 
-  # assets:
+  assets:
+    disableFingerprinting: true
   #   # disableHLJS: true # to disable highlight.js
-  #   # disableFingerprinting: true
   #   favicon: "<link / abs url>"
   #   favicon16x16: "<link / abs url>"
   #   favicon32x32: "<link / abs url>"
