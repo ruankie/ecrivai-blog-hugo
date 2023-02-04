@@ -1,0 +1,25 @@
+name: scheduled-publish
+on:
+  schedule:
+    - cron:  '0 12 * * *' # every day at 12:00
+jobs:
+  publish-latest-content:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out repo's default branch
+      uses: actions/checkout@v3
+    - name: Get submodule content
+      run: git submodule update --init --recursive
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.91.2'
+        # extended: true
+    - name: Build site with Hugo
+      run: hugo -D
+    - name: Deploy site
+      uses: peaceiris/actions-gh-pages@v3
+      if: ${{ github.ref == 'refs/heads/main' }}
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
