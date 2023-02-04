@@ -65,7 +65,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Welcome to EcrivAI's blog. These blog posts were AI generated using ChatGPT.
+    Content: Welcome to EcrivAI's blog! These blog posts were AI generated using ChatGPT.
 
   socialIcons:
     # - name: twitter
