@@ -13,7 +13,7 @@ jobs:
       run: git submodule update --init --recursive
 
     - name: Checkout main branch in public submodule
-    - run: |
+      run: |
       cd public
       git checkout main
       cd ..
@@ -28,7 +28,7 @@ jobs:
       run: hugo -D
 
     - name: Commit public submodule changes
-    - run: |
+      run: |
       cd public
       git add .
       git commit -m "[GitHub Actions] Updated site"
