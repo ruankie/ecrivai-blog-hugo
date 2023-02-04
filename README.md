@@ -25,13 +25,16 @@
     ```bash
     hugo -D
     ```
-7. The add and commit the changes (from the main repo, not the submodule):
+7. Commit and push the changes of the main repo:
     ```bash
     git add .
     git commit -m "updated site"
+    git push
     ```
-8. Push changes to this repo and let changes propagate to the submodule that contains the public static site data:
-    > The `--recurse-submodules=check` flag ensures that changes are pushed to the submodule correctly before pushing to the main repo.
+8. Commit and push the changes of the submodule repo:
     ```bash
-    git push --recurse-submodules=check
+    cd public
+    git add .
+    git commit -m "updated site"
+    git push
     ```
