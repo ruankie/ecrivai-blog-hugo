@@ -12,11 +12,12 @@
     cd public
     git checkout main
     ```
-4. Go to the parent repo again and make the desired changes:
+4. Make sure the `public/` submodule is up to date by pulling its latest changes and merging them in (go to parent repo first):
     ```bash
     cd ..
+    git submodule update --remote --merge public
     ```
-5. Build a local version of the site to see how your changes look:
+5. Now make your desired changes and build a local version of the site to see how your changes look:
     ```bash
     hugo server -D
     ```
