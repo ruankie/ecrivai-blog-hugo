@@ -19,18 +19,24 @@ jobs:
 
     - name: Checkout main branch in public submodule
       run: |
-        cd ./public
+        cd $GITHUB_WORKSPACE/public
         git checkout main
         cd $GITHUB_WORKSPACE
 
-    # - name: Setup Hugo
-    #   uses: peaceiris/actions-hugo@v2
-    #   with:
-    #     hugo-version: '0.91.2'
-    #     # extended: true
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: '0.91.2'
+        # extended: true
 
-    # - name: Build site with Hugo
-    #   run: hugo -D
+    - name: Build site with Hugo
+      run: hugo -D
+
+    - name: Check updates in in public submodule
+      run: |
+        cd $GITHUB_WORKSPACE/public
+        git status
+        cd $GITHUB_WORKSPACE
 
     # - name: Commit public submodule changes
     #   run: |
