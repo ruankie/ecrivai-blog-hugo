@@ -14,20 +14,14 @@ jobs:
     - name: Check out repo's default branch
       uses: actions/checkout@v3
 
-    - name: Show paths
+    - name: Get submodule content
+      run: git submodule update --init --recursive
+
+    - name: Checkout main branch in public submodule
       run: |
-        echo $GITHUB_WORKSPACE
-        pwd
-        ls -al
-
-    # - name: Get submodule content
-    #   run: git submodule update --init --recursive
-
-    # - name: Checkout main branch in public submodule
-    #   run: |
-    #     cd public
-    #     git checkout main
-    #     cd ..
+        cd ./public
+        git checkout main
+        cd $GITHUB_WORKSPACE
 
     # - name: Setup Hugo
     #   uses: peaceiris/actions-hugo@v2
