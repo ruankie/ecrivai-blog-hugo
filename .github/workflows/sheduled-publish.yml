@@ -19,13 +19,17 @@ jobs:
     # - name: Get submodule content
     #   run: git submodule update --init --recursive
 
-    - name: Go to public submodule
-      run: cd $GITHUB_WORKSPACE/public
-
     - name: Checkout main branch in public submodule
-      uses: actions/checkout@v3
-      with:
-        ref: main
+      run: |
+        cd $GITHUB_WORKSPACE/public
+        git config user.email ${{ secrets.GH_EMAIL }}
+        git config user.name ${{ secrets.GH_USERNAME }}
+        git checkout main        
+
+    # - name: Checkout main branch in public submodule
+    #   uses: actions/checkout@v3
+    #   with:
+    #     ref: main
       
     - name: Go to repo root
       run: cd $GITHUB_WORKSPACE
@@ -40,11 +44,9 @@ jobs:
 
     - name: Commit public submodule changes
       run: |
-        echo ${{ secrets.GH_EMAIL }}
-        echo ${{ secrets.GH_USERNAME }}
-        git config --global user.email ${{ secrets.GH_EMAIL }}
-        git config --global user.name ${{ secrets.GH_USERNAME }}
         cd $GITHUB_WORKSPACE/public
+        git config user.email ${{ secrets.GH_EMAIL }}
+        git config user.name ${{ secrets.GH_USERNAME }}
         git add .
         git commit -m "[GitHub Actions] Updated site"
         git push
