@@ -32,15 +32,9 @@ jobs:
     - name: Build site with Hugo
       run: hugo -D
 
-    - name: Check updates in in public submodule
+    - name: Commit public submodule changes
       run: |
         cd $GITHUB_WORKSPACE/public
-        git status
-        cd $GITHUB_WORKSPACE
-
-    # - name: Commit public submodule changes
-    #   run: |
-    #     cd public
-    #     git add .
-    #     git commit -m "[GitHub Actions] Updated site"
-    #     git push
+        git add .
+        git commit -m "[GitHub Actions] Updated site"
+        git push
