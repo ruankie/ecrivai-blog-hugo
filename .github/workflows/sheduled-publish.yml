@@ -40,10 +40,10 @@ jobs:
 
     - name: Commit public submodule changes
       run: |
-        echo {{ secrets.GH_EMAIL }}
-        echo {{ secrets.GH_USERNAME }}
-        git config --global user.email {{ secrets.GH_EMAIL }}
-        git config --global user.name {{ secrets.GH_USERNAME }}
+        echo ${{ secrets.GH_EMAIL }}
+        echo ${{ secrets.GH_USERNAME }}
+        git config --global user.email ${{ secrets.GH_EMAIL }}
+        git config --global user.name ${{ secrets.GH_USERNAME }}
         cd $GITHUB_WORKSPACE/public
         git add .
         git commit -m "[GitHub Actions] Updated site"
