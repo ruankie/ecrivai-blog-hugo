@@ -11,22 +11,25 @@ jobs:
   publish-latest-content:
     runs-on: ubuntu-latest
     steps:
-    - name: Check out repo's default branch
-      uses: actions/checkout@v3
-
-    - name: Get submodule content
-      run: git submodule update --init --recursive
-
-    - name: Checkout main branch in public submodule
+    - name: Check out repo with submodules
       uses: actions/checkout@v3
       with:
-        repository: ecriv-ai/ecriv-ai.github.io
-        path: public
+        submodules: recursive
         ref: main
-      # run: |
-      #   cd $GITHUB_WORKSPACE/public
-      #   git checkout main
-      #   cd $GITHUB_WORKSPACE
+
+    # - name: Get submodule content
+    #   run: git submodule update --init --recursive
+
+    - name: Checkout main branch in public submodule
+      # uses: actions/checkout@v3
+      # with:
+      #   repository: ecriv-ai/ecriv-ai.github.io
+      #   path: public
+      #   ref: main
+      run: |
+        cd $GITHUB_WORKSPACE/public
+        git status
+        cd $GITHUB_WORKSPACE
 
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
