@@ -1,40 +1,17 @@
+# Overview
+This repo contains the code that builds [the static site](https://ruankie.github.io/ecrivai-blog-hugo/) of [EcrivAI's](https://github.com/ruankie/ecrivai) blog posts. The site content is built using [Hugo](https://gohugo.io/) and saved in the `docs/` folder for hosting with GitHub Pages.
+
 # To Update
-1. Clone this repo:
-    ```bash
-    git clone https://github.com/ecriv-ai/blog-website-hugo.git
-    ```
-2. Get submodule content:
+1. After cloning, get the submodule content (the Hugo theme is contained in a submodule):
     ```bash
     git submodule update --init --recursive
     ```
-3. Go to the `public/` folder (submodule) and make sure the `main` branch is checked out to track changes:
-    ```bash
-    cd public
-    git checkout main
-    ```
-4. Make sure the `public/` submodule is up to date by pulling its latest changes and merging them in (go to parent repo first):
-    ```bash
-    cd ..
-    git submodule update --remote --merge public
-    ```
-5. Now make your desired changes and build a local version of the site to see how your changes look:
+2. Now you can make your desired changes and build a local version of the site to see how your changes look:
     ```bash
     hugo server -D
     ```
-6. Once satisfied, build the site static files:
+3. Once satisfied, build the site static files:
     ```bash
-    hugo -D
+    hugo -D -d docs
     ```
-7. Commit and push the changes of the main repo:
-    ```bash
-    git add .
-    git commit -m "updated site"
-    git push
-    ```
-8. Commit and push the changes of the submodule repo:
-    ```bash
-    cd public
-    git add .
-    git commit -m "updated site"
-    git push
-    ```
+4. When you're satisfied, commit and push the changes of the main repo and GitHub pages will update the site with the new contents of `docs/`
