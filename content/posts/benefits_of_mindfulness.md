@@ -1,7 +1,7 @@
 ---
 title: "The benefits of mindfulness and meditation for stress management"
 date: 2023-01-29T02:13:04+02:00
-draft: true
+draft: false
 ---
 
 ## Introduction
