@@ -2,8 +2,8 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Categories on EcrivAI Blog</title>
-    <link>https://ecriv-ai.github.io/categories/</link>
+    <link>https://ruankie.github.io/ecrivai-blog-hugo/categories/</link>
     <description>Recent content in Categories on EcrivAI Blog</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://ecriv-ai.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://ruankie.github.io/ecrivai-blog-hugo/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
