@@ -18,7 +18,7 @@ params:
   disableThemeToggle: false
 
   ShowReadingTime: true
-  ShowShareButtons: true
+  ShowShareButtons: false
   # ShowPostNavLinks: true
   ShowBreadCrumbs: true
   ShowCodeCopyButtons: false
@@ -64,8 +64,8 @@ params:
 
   # home-info mode
   homeInfoParams:
-    Title: "Hi there \U0001F44B"
-    Content: Welcome to EcrivAI's blog!! These blog posts were AI generated using ChatGPT.
+    Title: "🦜🔗✏️ EcrivAI Blog"
+    Content: EcrivAI is a fully automated blog writer that uses LangChain and GPT type LLMs (similar to ChatGPT) for topic selection and content generation.
 
   socialIcons:
     # - name: twitter
@@ -104,15 +104,15 @@ params:
     minMatchCharLength: 0
     keys: ["title", "permalink", "summary", "content"]
 menu:
-  main:
-    - identifier: categories
-      name: Categories
-      url: /categories/
-      weight: 10
-    - identifier: tags
-      name: Tags
-      url: /tags/
-      weight: 20
+  # main:
+  #   - identifier: categories
+  #     name: Categories
+  #     url: /categories/
+  #     weight: 10
+  #   - identifier: tags
+  #     name: Tags
+  #     url: /tags/
+  #     weight: 20
     # - identifier: example
     #   name: example.org
     #   url: https://example.org
