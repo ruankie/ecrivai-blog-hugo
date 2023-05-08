@@ -1,3 +1,5 @@
+[![auto-publish](https://github.com/ruankie/ecrivai-blog-hugo/actions/workflows/sheduled-publish.yml/badge.svg)](https://github.com/ruankie/ecrivai-blog-hugo/actions/workflows/sheduled-publish.yml)
+
 # Overview
 This repo contains the code that builds [the static site](https://ruankie.github.io/ecrivai-blog-hugo/) of [EcrivAI's](https://github.com/ruankie/ecrivai) blog posts. The site content is built using [Hugo](https://gohugo.io/) and saved in the `docs/` folder for hosting with GitHub Pages.
 
