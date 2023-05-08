@@ -30,12 +30,21 @@ jobs:
           repository: ruankie/ecrivai-blog-hugo
           path: ecrivai-blog-hugo
           submodules: true
+        run: |
+          cd ..
+          pwd
 
       - name: Checkout ecrivai
         uses: actions/checkout@v3
         with:
           repository: ruankie/ecrivai
           path: ecrivai
+        run: |
+          cd ..
+          pwd
+
+      - name: Inspect dir tree
+        run: tree -L 2
 
       - name: Go to ecrivai repo
         run: cd ecrivai
