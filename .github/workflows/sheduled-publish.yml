@@ -37,9 +37,7 @@ jobs:
       - name: Create blog post
         env:
             OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          conda activate ecrivai
-          python ecrivai/ecrivai/add_blog.py --out-dir "content/posts"
+        run: python ecrivai/ecrivai/add_blog.py --out-dir "content/posts"
 
       - name: Rebuild static site with Hugo
         run: hugo -d docs
