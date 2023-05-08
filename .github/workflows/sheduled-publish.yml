@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    defaults:
+      run:
+        shell: bash -el {0}
     steps:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
