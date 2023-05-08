@@ -1,52 +1,63 @@
 name: scheduled-publish
-# on:
-#   schedule:
-#     - cron:  '5 * * * *' # every 5 minutes
+
 on:
   push:
-    branches:
-      - main  # Set a branch to deploy
+    branches: [ main ]
+  schedule:
+    - cron: '0 0 * * *'
 
 jobs:
-  publish-latest-content:
+  add-blog-and-publish:
     runs-on: ubuntu-latest
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the
+      # added or changed files to the repository.
+      contents: write
     steps:
-    - name: Check out repo with submodules
-      uses: actions/checkout@v3
-      with:
-        submodules: recursive
+      - name: Set OpenAI API key as env var
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: echo "API keys set successfully"
 
-    # - name: Get submodule content
-    #   run: git submodule update --init --recursive
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+            hugo-version: latest
 
-    - name: Checkout main branch in public submodule
-      run: |
-        cd $GITHUB_WORKSPACE/public
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git checkout main        
+      - name: Checkout ecrivai-blog-hugo with submodules
+        uses: actions/checkout@v3
+        with:
+          repository: ruankie/ecrivai-blog-hugo
+          path: ecrivai-blog-hugo
+          submodules: true
 
-    # - name: Checkout main branch in public submodule
-    #   uses: actions/checkout@v3
-    #   with:
-    #     ref: main
-      
-    - name: Go to repo root
-      run: cd $GITHUB_WORKSPACE
+      - name: Checkout ecrivai
+        uses: actions/checkout@v3
+        with:
+          repository: ruankie/ecrivai
+          path: ecrivai
 
-    - name: Setup Hugo
-      uses: peaceiris/actions-hugo@v2
-      with:
-        hugo-version: '0.91.2'
+      - name: Go to ecrivai repo
+        run: cd ecrivai
 
-    - name: Build site with Hugo
-      run: hugo -D
+      - name: Setup and activate conda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          activate-environment: ecrivai
+          environment-file: conda.yml
 
-    - name: Commit public submodule changes
-      run: |
-        cd $GITHUB_WORKSPACE/public
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add .
-        git commit -m "[GitHub Actions] Updated site"
-        git push
+      - name: Create blog post
+        run: python ecrivai/add_blog.py --out-dir "../ecrivai-blog-hugo/content/posts"
+
+      - name: Go to ecrivai-blog-hugo repo
+        run: cd ../ecrivai-blog-hugo
+
+      - name: Rebuild static site with Hugo
+        run: hugo -d docs
+
+      - name: Commit and push changes to ecrivai-blog-hugo
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Auto add blog post
+          repository: .
+          #branch: main
