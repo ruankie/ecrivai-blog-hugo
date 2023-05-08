@@ -17,11 +17,6 @@ jobs:
       - name: Show pwd
         run: pwd
 
-      - name: Set OpenAI API key as env var
-        env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: echo "API keys set successfully"
-
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
@@ -30,9 +25,9 @@ jobs:
       - name: Checkout ecrivai-blog-hugo with submodules
         uses: actions/checkout@v3
         with:
-          repository: ruankie/ecrivai-blog-hugo
-          # path: ecrivai-blog-hugo
           submodules: true
+          # repository: ruankie/ecrivai-blog-hugo
+          # path: ecrivai-blog-hugo
       
       - name: Go to root
         run: |
@@ -51,10 +46,14 @@ jobs:
           pwd
 
       - name: Inspect dir tree
-        run: tree -L 2
+        run: |
+          pwd
+          tree -L 3
 
       - name: Go to ecrivai repo
-        run: cd ecrivai
+        run: |
+          cd ecrivai
+          pwd
 
       - name: Setup and activate conda
         uses: conda-incubator/setup-miniconda@v2
@@ -63,10 +62,15 @@ jobs:
           environment-file: conda.yml
 
       - name: Create blog post
-        run: python ecrivai/add_blog.py --out-dir "../ecrivai-blog-hugo/content/posts"
+        env:
+            OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        # run: python ecrivai/add_blog.py --out-dir "../ecrivai-blog-hugo/content/posts"
+        run: echo "*** dummy script run ***"
 
       - name: Go to ecrivai-blog-hugo repo
-        run: cd ../ecrivai-blog-hugo
+        run: |
+          cd ../ecrivai-blog-hugo
+          pwd
 
       - name: Rebuild static site with Hugo
         run: hugo -d docs
