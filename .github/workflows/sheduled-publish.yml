@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: ruankie/ecrivai-blog-hugo
-          path: ecrivai-blog-hugo
+          # path: ecrivai-blog-hugo
           submodules: true
       
       - name: Go to root
@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: ruankie/ecrivai
-          path: ecrivai
+          # path: ecrivai
         
       - name: Go to root
         run: |
