@@ -30,6 +30,8 @@ jobs:
           repository: ruankie/ecrivai-blog-hugo
           path: ecrivai-blog-hugo
           submodules: true
+      
+      - name: Go to root
         run: |
           cd ..
           pwd
@@ -39,6 +41,8 @@ jobs:
         with:
           repository: ruankie/ecrivai
           path: ecrivai
+        
+      - name: Go to root
         run: |
           cd ..
           pwd
