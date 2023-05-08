@@ -29,37 +29,37 @@ jobs:
           # repository: ruankie/ecrivai-blog-hugo
           # path: ecrivai-blog-hugo
       
-      - name: Go to root
-        run: |
-          cd ..
-          pwd
+      # - name: Go to root
+      #   run: |
+      #     cd ..
+      #     pwd
 
       - name: Checkout ecrivai
         uses: actions/checkout@v3
         with:
           repository: ruankie/ecrivai
-          # path: ecrivai
+          path: ecrivai
         
-      - name: Go to root
-        run: |
-          cd ..
-          pwd
+      # - name: Go to root
+      #   run: |
+      #     cd ..
+      #     pwd
 
       - name: Inspect dir tree
         run: |
           pwd
           tree -L 3
 
-      - name: Go to ecrivai repo
-        run: |
-          cd ecrivai
-          pwd
+      # - name: Go to ecrivai repo
+      #   run: |
+      #     cd ecrivai
+      #     pwd
 
       - name: Setup and activate conda
         uses: conda-incubator/setup-miniconda@v2
         with:
           activate-environment: ecrivai
-          environment-file: conda.yml
+          environment-file: ecrivai/conda.yml
 
       - name: Create blog post
         env:
@@ -67,13 +67,15 @@ jobs:
         # run: python ecrivai/add_blog.py --out-dir "../ecrivai-blog-hugo/content/posts"
         run: echo "*** dummy script run ***"
 
-      - name: Go to ecrivai-blog-hugo repo
-        run: |
-          cd ../ecrivai-blog-hugo
-          pwd
+      # - name: Go to ecrivai-blog-hugo repo
+      #   run: |
+      #     cd ../ecrivai-blog-hugo
+      #     pwd
 
       - name: Rebuild static site with Hugo
-        run: hugo -d docs
+        run: |
+          cd ecrivai-blog-hugo
+          hugo -d docs
 
       - name: Commit and push changes to ecrivai-blog-hugo
         uses: stefanzweifel/git-auto-commit-action@v4
