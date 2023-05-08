@@ -1,3 +1,4 @@
+[![blog-link](https://img.shields.io/badge/ecrivai-blog-blue)](https://ruankie.github.io/ecrivai-blog-hugo/)
 [![auto-publish](https://github.com/ruankie/ecrivai-blog-hugo/actions/workflows/sheduled-publish.yml/badge.svg)](https://github.com/ruankie/ecrivai-blog-hugo/actions/workflows/sheduled-publish.yml)
 
 # Overview
