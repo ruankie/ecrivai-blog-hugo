@@ -1,6 +1,8 @@
 name: scheduled-publish
 
-on:
+on: 
+  workflow_dispatch:
+    # No inputs required
   schedule:
     - cron: '0 0,12 * * *'
 
