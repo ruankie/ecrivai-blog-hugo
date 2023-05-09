@@ -43,6 +43,9 @@ jobs:
             OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: python ecrivai/ecrivai/add_blog.py --out-dir "content/posts"
 
+      - name: Remove ecrivai repo
+        run: rm -rf ecrivai
+
       - name: Rebuild static site with Hugo
         run: hugo -d docs
 
