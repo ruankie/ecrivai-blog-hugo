@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://ruankie.github.io/ecrivai-blog-hugo/posts/202305120039/</loc>
-    <lastmod>2023-05-12T00:39:30+00:00</lastmod>
-  </url><url>
     <loc>https://ruankie.github.io/ecrivai-blog-hugo/</loc>
-    <lastmod>2023-05-12T00:39:30+00:00</lastmod>
+    <lastmod>2023-05-12T12:14:41+00:00</lastmod>
   </url><url>
     <loc>https://ruankie.github.io/ecrivai-blog-hugo/posts/</loc>
+    <lastmod>2023-05-12T12:14:41+00:00</lastmod>
+  </url><url>
+    <loc>https://ruankie.github.io/ecrivai-blog-hugo/posts/202305121214/</loc>
+    <lastmod>2023-05-12T12:14:41+00:00</lastmod>
+  </url><url>
+    <loc>https://ruankie.github.io/ecrivai-blog-hugo/posts/202305120039/</loc>
     <lastmod>2023-05-12T00:39:30+00:00</lastmod>
   </url><url>
     <loc>https://ruankie.github.io/ecrivai-blog-hugo/posts/202305111215/</loc>
