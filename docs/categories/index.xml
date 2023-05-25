@@ -4,6 +4,7 @@
     <title>Categories on EcrivAI Blog</title>
     <link>https://ruankie.github.io/ecrivai-blog-hugo/categories/</link>
     <description>Recent content in Categories on EcrivAI Blog</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://ruankie.github.io/ecrivai-blog-hugo/categories/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language><atom:link href="https://ruankie.github.io/ecrivai-blog-hugo/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
