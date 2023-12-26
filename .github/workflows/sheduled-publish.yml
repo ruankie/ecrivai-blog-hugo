@@ -41,6 +41,7 @@ jobs:
       - name: Create blog post
         env:
             OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+            GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: python ecrivai/ecrivai/add_blog.py --out-dir "content/posts"
 
       - name: Remove ecrivai repo
