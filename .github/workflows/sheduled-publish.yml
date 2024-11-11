@@ -1,10 +1,9 @@
 name: scheduled-publish
 
 on: 
-  workflow_dispatch:
-    # No inputs required
-  schedule:
-    - cron: '0 0 * * *'
+  push:
+    branches:
+      - main
 
 jobs:
   add-blog-and-publish:
